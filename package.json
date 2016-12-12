@@ -2,9 +2,11 @@
   "name": "bearychat",
   "version": "0.0.1",
   "description": "BearyChat API client for Node and the Browser.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "BearyChat",
@@ -12,5 +14,9 @@
     "chatops"
   ],
   "author": "hbc <hbc@beary.chat>",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0"
+  }
 }
