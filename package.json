@@ -1,0 +1,16 @@
+{
+  "name": "bearychat",
+  "version": "0.0.1",
+  "description": "BearyChat API client for Node and the Browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "BearyChat",
+    "API",
+    "chatops"
+  ],
+  "author": "hbc <hbc@beary.chat>",
+  "license": "UNLICENSED"
+}
