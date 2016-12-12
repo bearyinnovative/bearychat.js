@@ -1,5 +1,7 @@
+import {withText, withMarkdown} from './incoming.builder';
 import send from './incoming.send';
 
 export default {
-  send
+  withText, withMarkdown,
+  send,
 };
