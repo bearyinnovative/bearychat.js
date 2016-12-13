@@ -1,6 +1,6 @@
 {
   "name": "bearychat",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "BearyChat API client for Node and the Browser.",
   "main": "dist/index.js",
   "scripts": {
@@ -13,6 +13,10 @@
     "API",
     "chatops"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bearyinnovative/bearychat.js.git"
+  },
   "author": "hbc <hbc@beary.chat>",
   "license": "MIT",
   "devDependencies": {
