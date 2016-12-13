@@ -2,6 +2,10 @@
 
 [BearyChat][] API client for Node and the Browser.
 
+[![Build Status](https://travis-ci.org/bearyinnovative/bearychat.js.svg)](https://travis-ci.org/bearyinnovative/bearychat.js)
+![Development Status](https://img.shields.io/badge/status-WIP-yellow.svg?style=flat-square)
+
+
 [BearyChat]: https://bearychat.com
 
 ## Install
