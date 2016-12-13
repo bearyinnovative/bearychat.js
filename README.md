@@ -55,4 +55,4 @@ $ npm run test
 
 ## LICENSE
 
-TBD
+MIT

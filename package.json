@@ -14,7 +14,7 @@
     "chatops"
   ],
   "author": "hbc <hbc@beary.chat>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
