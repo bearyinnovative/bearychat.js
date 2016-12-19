@@ -41,7 +41,10 @@ class Client {
   }
 
   currentTeamMembers() {
-    return this.request('v1/current_team.members', {method: 'GET'});
+    return this.request('v1/current_team.members', {
+      method: 'GET',
+      query: {all: true},
+    });
   }
 
   currentTeamChannels() {
