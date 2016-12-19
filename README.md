@@ -8,6 +8,24 @@
 
 [BearyChat]: https://bearychat.com
 
+<!-- toc -->
+
+- [Install](#install)
+- [Usage](#usage)
+  * [`incoming.send`](#incomingsend)
+  * [`incoming.builder`](#incomingbuilder)
+  * [`rtm.start`](#rtmstart)
+  * [`rtm.currentTeamInfo`](#rtmcurrentteaminfo)
+  * [`rtm.currentTeamMembers`](#rtmcurrentteammembers)
+  * [`rtm.currentTeamChannels`](#rtmcurrentteamchannels)
+  * [`rtm.userInfo`](#rtmuserinfo)
+  * [`rtm.channelInfo`](#rtmchannelinfo)
+- [Test](#test)
+- [Contributing](#contributing)
+- [LICENSE](#license)
+
+<!-- tocstop -->
+
 ## Install
 
 ```
