@@ -46,12 +46,12 @@ class Builder {
 
     if (this.attachments.length > 0) {
       message.attachments = [];
-      for (let attachment of this.attachments) {
+      this.attachments.forEach((attachment) => {
         if (!attachment.title && !attachment.text) {
           throw new Error('attachment title or text is required');
         }
         message.attachments.push(attachment);
-      }
+      });
     }
 
     return message;
@@ -61,5 +61,5 @@ class Builder {
 
 export default {
   withText: (text, useMarkdown) => (new Builder()).withText(text, useMarkdown),
-  withMarkdown: (text) => (new Builder()).withMarkdown(text),
+  withMarkdown: text => (new Builder()).withMarkdown(text),
 };

@@ -26,7 +26,7 @@ class Client {
       .toString();
     return fetch(resourceUri, opts)
       .then((resp) => {
-        return resp.json().then(({code, error, result}) => {
+        return resp.json().then(({ code, error, result }) => {
           if (code !== 0) {
             throw error;
           }
@@ -37,36 +37,36 @@ class Client {
   }
 
   currentTeamInfo() {
-    return this.request('v1/current_team.info', {method: 'GET'});
+    return this.request('v1/current_team.info', { method: 'GET' });
   }
 
   currentTeamMembers() {
     return this.request('v1/current_team.members', {
       method: 'GET',
-      query: {all: true},
+      query: { all: true },
     });
   }
 
   currentTeamChannels() {
-    return this.request('v1/current_team.channels', {method: 'GET'});
+    return this.request('v1/current_team.channels', { method: 'GET' });
   }
 
   userInfo(userId) {
     return this.request('v1/user.info', {
       method: 'GET',
-      query: {user_id: userId},
+      query: { user_id: userId },
     });
   }
 
   channelInfo(channelId) {
     return this.request('v1/channel.info', {
       method: 'GET',
-      query: {channel_id: channelId},
+      query: { channel_id: channelId },
     });
   }
 
   start() {
-    return this.request('start', {method: 'POST'});
+    return this.request('start', { method: 'POST' });
   }
 
 }
