@@ -34,6 +34,8 @@
     "urijs": "^1.18.4"
   },
   "jest": {
-    "testRegex": "(/__tests__/.*|\\-(test|spec))\\.js$"
+    "testRegex": "(/__tests__/.*|\\-(test|spec))\\.js$",
+    "collectCoverage": true,
+    "coverageReporters": ["text"]
   }
 }
