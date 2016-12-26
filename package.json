@@ -26,7 +26,8 @@
   },
   "dependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^2.2.1",
+    "urijs": "^1.18.4"
   },
   "jest": {
     "testRegex": "(/__tests__/.*|\\-(test|spec))\\.js$"
