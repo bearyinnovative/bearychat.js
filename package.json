@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "npm run build && jest",
+    "lint": "eslint ./src",
     "build": "babel src -d dist",
     "prepublish": "npm run build"
   },
@@ -22,6 +23,9 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb-base": "^11.0.0",
+    "eslint-plugin-import": "^2.2.0",
     "jest": "^17.0.3"
   },
   "dependencies": {
