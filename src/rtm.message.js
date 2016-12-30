@@ -47,7 +47,7 @@ function isFromUser(message, user) {
 
 function reply(message, text) {
   const replyMessage = {
-    text: text,
+    text,
     vchannel_id: message.vchannel_id,
   };
 
