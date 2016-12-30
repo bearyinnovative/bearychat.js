@@ -1,19 +1,16 @@
 # bearychat.js
 
-[BearyChat][] API client for Node and the Browser.
+[BearyChat][] API 客户端（适用于 Node 和浏览器环境）
 
 [![Build Status](https://travis-ci.org/bearyinnovative/bearychat.js.svg)](https://travis-ci.org/bearyinnovative/bearychat.js)
 ![Development Status](https://img.shields.io/badge/status-WIP-yellow.svg?style=flat-square)
 
 [BearyChat]: https://bearychat.com
 
-[中文文档](./README_CN.md)
-
-
 <!-- toc -->
 
-- [Install](#install)
-- [Usage](#usage)
+- [安装](#%E5%AE%89%E8%A3%85)
+- [用例](#%E7%94%A8%E4%BE%8B)
   * [`incoming.send`](#incomingsend)
   * [`incoming.builder`](#incomingbuilder)
   * [`rtm.start`](#rtmstart)
@@ -22,25 +19,25 @@
   * [`rtm.currentTeamChannels`](#rtmcurrentteamchannels)
   * [`rtm.userInfo`](#rtmuserinfo)
   * [`rtm.channelInfo`](#rtmchannelinfo)
-- [Test](#test)
-- [Contributing](#contributing)
+- [测试](#%E6%B5%8B%E8%AF%95)
+- [贡献](#%E8%B4%A1%E7%8C%AE)
 - [LICENSE](#license)
 
 <!-- tocstop -->
 
-## Install
+## 安装
 
 ```
 $ npm i bearychat
 ```
 
-or with `yarn`
+假如你使用 `yarn`:
 
 ```
 $ yarn add bearychat
 ```
 
-## Usage
+## 用例
 
 ### `incoming.send`
 
@@ -149,13 +146,13 @@ rtm.channelInfo(rtmToken, channelId)
   });
 ```
 
-## Test
+## 测试
 
 ```
 $ npm run test
 ```
 
-## Contributing
+## 贡献
 
 ## LICENSE
 
