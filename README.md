@@ -9,7 +9,6 @@
 
 [中文文档](./README_CN.md)
 
-
 <!-- toc -->
 
 - [Install](#install)
@@ -22,6 +21,8 @@
   * [`rtm.currentTeamChannels`](#rtmcurrentteamchannels)
   * [`rtm.userInfo`](#rtmuserinfo)
   * [`rtm.channelInfo`](#rtmchannelinfo)
+  * [`rtm.message`](#rtmmessage)
+  * [`rtm.loop`](#rtmloop)
 - [Test](#test)
 - [Contributing](#contributing)
 - [LICENSE](#license)
@@ -148,6 +149,25 @@ rtm.channelInfo(rtmToken, channelId)
     console.log(channel);
   });
 ```
+
+### `rtm.message`
+
+Provides handful helpers for rtm message parsing.
+
+### `rtm.loop`
+
+To archive more flexible usage, `bearychat.js` won't provide any implementations
+for `rtm.loop`. You can use [`examples/rtm_loop`](./exapmles/rtm_loop) as
+implementation reference.
+
+Basically, `rtm.loop` contains 3 stages:
+
+1. `rtm.start`: Use rtm token to authenticate user and open a websocket
+connection.
+2. `ping`: Keep sending `type=ping` message to server after connected. Pinging
+interval with `5000ms` is suggested.
+3. `loop`: Subscribe to websocket's message event and consume the message comes
+from the server. You can use `rtm.message` for message parsing.
 
 ## Test
 

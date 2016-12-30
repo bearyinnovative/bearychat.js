@@ -19,6 +19,8 @@
   * [`rtm.currentTeamChannels`](#rtmcurrentteamchannels)
   * [`rtm.userInfo`](#rtmuserinfo)
   * [`rtm.channelInfo`](#rtmchannelinfo)
+  * [`rtm.message`](#rtmmessage)
+  * [`rtm.loop`](#rtmloop)
 - [测试](#%E6%B5%8B%E8%AF%95)
 - [贡献](#%E8%B4%A1%E7%8C%AE)
 - [LICENSE](#license)
@@ -145,6 +147,23 @@ rtm.channelInfo(rtmToken, channelId)
     console.log(channel);
   });
 ```
+
+### `rtm.message`
+
+提供一系列解析 RTM 消息的函数。
+
+### `rtm.loop`
+
+为了提供更加灵活的功能，`bearychat.js` 不会提供 `rtm.loop` 的实现。你可以使用
+[`examples/rtm_loop`](./examples/rtm_loop) 作为参考。
+
+简单来说，`rtm.loop` 包含 3 个阶段：
+
+1. `rtm.start`: 使用 RTM token 来进行认证，并获得 websocket 连接地址。
+2. `ping`: 在连接上服务器之后，需要持续发送 `type=ping` 的消息来保持连接。
+建议发送间隔为 `5000ms`
+3. `loop`: 订阅 websocket 连接的消息事件。收到来自服务器的消息后可以
+通过 `rtm.messsage` 来解析处理消息。
 
 ## 测试
 
