@@ -7,6 +7,7 @@
     "test": "npm run build && jest",
     "lint": "eslint ./src",
     "build": "babel src -d dist",
+    "build-doc": "markdown-toc -i README.md && markdown-toc -i README_CN.md",
     "prepublish": "npm run build"
   },
   "keywords": [
