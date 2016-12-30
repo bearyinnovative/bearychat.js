@@ -1,4 +1,5 @@
 import Client from './rtm.client';
+import message from './rtm.message';
 
 function currentTeamInfo(token) {
   return (new Client(token)).currentTeamInfo();
@@ -34,4 +35,6 @@ export default {
   start,
 
   Client,
+
+  message,
 };
