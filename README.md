@@ -157,7 +157,7 @@ Provides handful helpers for rtm message parsing.
 ### `rtm.loop`
 
 To achive more flexible usage, `bearychat.js` won't provide any implementations
-for `rtm.loop`. You can use [`examples/rtm_loop`](./exapmles/rtm_loop) as
+for `rtm.loop`. You can use [`examples/rtm_loop`](./examples/rtm_loop) as
 implementation reference.
 
 Basically, `rtm.loop` contains 3 stages:
