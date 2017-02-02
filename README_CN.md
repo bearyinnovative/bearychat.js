@@ -173,6 +173,10 @@ $ npm run test
 
 ## 贡献
 
+欢迎给 bearychat.js 添砖加瓦，你可以在 [CONTRIBUTING][] 中找到相关说明。
+
+[CONTRIBUTING]: ./CONTRIBUTING.md
+
 ## LICENSE
 
 MIT
