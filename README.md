@@ -177,6 +177,10 @@ $ npm run test
 
 ## Contributing
 
+Contributing is welcome, the contribution guide can be found in [CONTRIBUTING][]
+
+[CONTRIBUTING]: ./CONTRIBUTING.md
+
 ## LICENSE
 
 MIT
