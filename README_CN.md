@@ -2,6 +2,7 @@
 
 [BearyChat][] API 客户端（适用于 Node 和浏览器环境）
 
+[![@BearyChat](http://openapi.beary.chat/badge.svg)](http://openapi.beary.chat/join)
 [![Build Status](https://travis-ci.org/bearyinnovative/bearychat.js.svg)](https://travis-ci.org/bearyinnovative/bearychat.js)
 ![Development Status](https://img.shields.io/badge/status-WIP-yellow.svg?style=flat-square)
 
