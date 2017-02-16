@@ -1,0 +1,21 @@
+#!/bin/env node
+
+const join = require('path').join;
+const fs = require('fs');
+const fetch = require('isomorphic-fetch');
+
+const schemaURL = 'https://raw.githubusercontent.com/bearyinnovative/OpenAPI/master/api-swagger.yml';
+const dest = join(__dirname, '..', 'src', 'api.swagger.yml');
+
+fetch(schemaURL)
+  .then((resp) => {
+    return resp.text();
+  })
+  .then((schema) => {
+    fs.writeFileSync(dest, schema);
+    console.log(`schema downloaded to ${dest}`);
+  })
+  .catch((err) => {
+    console.log(err);
+    process.exit(-1);
+  });
