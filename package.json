@@ -9,7 +9,6 @@
     "download-api": "./scripts/download-api",
     "build:src": "./scripts/generate-validate && ./scripts/generate-api",
     "build:babel": "babel src -d dist --copy-files --source-maps inline",
-    "build": "npm run build:src && npm run build:babel",
     "build:doc": "markdown-toc -i README.md && markdown-toc -i README_CN.md",
     "prepublish": "npm run build"
   },
