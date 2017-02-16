@@ -8,6 +8,8 @@ import meta from './meta';
 import p2p from './p2p';
 import team from './team';
 import user from './user';
+import sticker from './sticker';
+import emoji from './emoji';
 
 export default {
   api,
@@ -20,4 +22,6 @@ export default {
   p2p,
   team,
   user,
+  sticker,
+  emoji,
 };
