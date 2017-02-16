@@ -1,0 +1,452 @@
+{
+  "/meta": {
+    "GET": {
+      "authentication": true,
+      "parameters": {}
+    }
+  },
+  "/team.info": {
+    "GET": {
+      "authentication": true,
+      "parameters": {}
+    }
+  },
+  "/user.info": {
+    "GET": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "user_id",
+          "in": "body",
+          "description": "用户 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/user.list": {
+    "GET": {
+      "authentication": true,
+      "parameters": {}
+    }
+  },
+  "/user.me": {
+    "GET": {
+      "authentication": true,
+      "parameters": {}
+    }
+  },
+  "/channel.info": {
+    "GET": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "body",
+          "description": "讨论组 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/channel.list": {
+    "GET": {
+      "authentication": true,
+      "parameters": {}
+    }
+  },
+  "/channel.create": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "name",
+          "in": "body",
+          "description": "讨论组名称",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "topic",
+          "in": "body",
+          "description": "讨论组话题",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "private",
+          "in": "body",
+          "description": "讨论组是否为私密？",
+          "required": false,
+          "type": "boolean",
+          "default": false
+        }
+      ]
+    }
+  },
+  "/channel.archive": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "body",
+          "description": "讨论组 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/channel.unarchive": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "body",
+          "description": "讨论组 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/channel.leave": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "body",
+          "description": "讨论组 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/channel.join": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "body",
+          "description": "讨论组 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/channel.invite": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "body",
+          "description": "讨论组 id",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "invite_uid",
+          "in": "body",
+          "description": "邀请用户 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/channel.kick": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "body",
+          "description": "讨论组 id",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "kick_uid",
+          "in": "body",
+          "description": "移除用户 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/session_channel.info": {
+    "GET": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "session_channel_id",
+          "in": "body",
+          "description": "讨论组 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/session_channel.list": {
+    "GET": {
+      "authentication": true,
+      "parameters": {}
+    }
+  },
+  "/session_channel.create": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "name",
+          "in": "body",
+          "description": "临时讨论组名称",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "member_uids",
+          "in": "body",
+          "description": "临时讨论组成员 id 列表",
+          "required": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResponseObjectId"
+          }
+        }
+      ]
+    }
+  },
+  "/session_channel.archive": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "session_channel_id",
+          "in": "body",
+          "description": "临时讨论组 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/session_channel.convert_to_channel": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "session_channel_id",
+          "in": "body",
+          "description": "临时讨论组 id",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "in": "body",
+          "description": "讨论组名称",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "private",
+          "in": "body",
+          "description": "讨论组是否为私密？",
+          "required": false,
+          "type": "boolean",
+          "default": true
+        }
+      ]
+    }
+  },
+  "/session_channel.leave": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "session_channel_id",
+          "in": "body",
+          "description": "临时讨论组 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/session_channel.invite": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "session_channel_id",
+          "in": "body",
+          "description": "临时讨论组 id",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "invite_uid",
+          "in": "body",
+          "description": "邀请用户 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/session_channel.kick": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "session_channel_id",
+          "in": "body",
+          "description": "临时讨论组 id",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "kick_uid",
+          "in": "body",
+          "description": "邀请用户 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/p2p.info": {
+    "GET": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "p2p_channel_id",
+          "in": "body",
+          "description": "P2P 聊天会话 id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/p2p.list": {
+    "GET": {
+      "authentication": true,
+      "parameters": {}
+    }
+  },
+  "/p2p.create": {
+    "POST": {
+      "authentication": true,
+      "parameters": {}
+    }
+  },
+  "/message.query": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "query",
+          "in": "body",
+          "description": "消息查询 payload",
+          "required": true,
+          "$ref": "#/definitions/MessageQuery"
+        }
+      ]
+    }
+  },
+  "/message.create": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "vchannel_id",
+          "in": "body",
+          "description": "指定的目标聊天会话 id",
+          "required": true,
+          "$ref": "#/definitions/VChannelId"
+        },
+        {
+          "name": "text",
+          "in": "body",
+          "description": "消息内容",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "attachments",
+          "in": "body",
+          "description": "消息附件",
+          "required": true,
+          "type": "array",
+          "items": "$ref '#/definitions/MessageAttachment'"
+        }
+      ]
+    }
+  },
+  "/message.delete": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "message_key",
+          "in": "body",
+          "description": "删除的消息 key",
+          "required": true,
+          "$ref": "#/definitions/MessageKey"
+        }
+      ]
+    }
+  },
+  "/message.update_text": {
+    "PATCH": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "message_key",
+          "in": "body",
+          "description": "更新的消息 key",
+          "required": true,
+          "$ref": "#/definitions/MessageKey"
+        },
+        {
+          "name": "text",
+          "in": "body",
+          "description": "更新的消息内容",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/emoji.list": {
+    "GET": {
+      "authentication": true,
+      "parameters": {}
+    }
+  },
+  "/sticker.list": {
+    "GET": {
+      "authentication": true,
+      "parameters": {}
+    }
+  },
+  "/rtm.start": {
+    "POST": {
+      "authentication": true,
+      "parameters": {}
+    }
+  }
+}

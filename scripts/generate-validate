@@ -1,0 +1,25 @@
+#!/bin/env node
+
+const fs = require('fs');
+const join = require('path').join;
+const yaml = require('js-yaml');
+
+const apiFilePath = join(__dirname, '..', 'src', 'api.swagger.yml');
+const apiSchema = yaml.safeLoad(fs.readFileSync(apiFilePath));
+
+const validationFilePath = join(__dirname, '..', 'src', '_validation.json');
+const validation = {};
+Object.keys(apiSchema.paths).forEach((path) => {
+  const settings = apiSchema.paths[path];
+  validation[path] = validation[path] || {};
+
+  Object.keys(settings).forEach((requestMethod) => {
+    validation[path][requestMethod.toUpperCase()] = {
+      // authentication required by default
+      authentication: settings[requestMethod].authentication || true,
+      parameters: settings[requestMethod].parameters || {},
+    };
+  });
+});
+fs.writeFileSync(validationFilePath, JSON.stringify(validation, null, '  '));
+console.log(`generated ${validationFilePath}`);
