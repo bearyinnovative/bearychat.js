@@ -1,12 +1,12 @@
-let _basePath;
+let basePath;
 
-function setBasePath(basePath) {
-  _basePath = basePath;
+function setBasePath(p) {
+  basePath = p;
 }
 
 function getBasePath(fallback) {
-  if (_basePath) {
-    return _basePath;
+  if (basePath) {
+    return basePath;
   }
 
   if (process.env.BEARYCHAT_API_BASE) {

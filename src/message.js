@@ -1,8 +1,11 @@
-const r = (name) => require(`./message.${name}`);
+import create from './message.create';
+import deleteMessage from './message.delete';
+import query from './message.query';
+import updateText from './message.update_text';
 
 export default {
-  create: r('create'),
-  'delete': r('delete'),
-  query: r('query'),
-  updateText: r('update_text'),
+  create,
+  delete: deleteMessage,
+  query,
+  updateText,
 };

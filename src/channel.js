@@ -1,13 +1,21 @@
-const r = (name) => require(`./channel.${name}`);
+import archive from './channel.archive';
+import unarchive from './channel.unarchive';
+import create from './channel.create';
+import info from './channel.info';
+import invite from './channel.invite';
+import join from './channel.join';
+import kick from './channel.kick';
+import leave from './channel.leave';
+import list from './channel.list';
 
 export default {
-  archive: r('archive'),
-  unarchive: r('unarchive'),
-  create: r('create'),
-  info: r('info'),
-  invite: r('invite'),
-  join: r('join'),
-  kick: r('kick'),
-  leave: r('leave'),
-  list: r('list'),
-}
+  archive,
+  unarchive,
+  create,
+  info,
+  invite,
+  join,
+  kick,
+  leave,
+  list,
+};

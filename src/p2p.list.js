@@ -7,19 +7,20 @@ import { validate } from './_validate';
 
 export default function p2pList(payload) {
   return new Promise((resolve, reject) => {
-    let path = '/p2p.list';
-    const err = validate('GET', path, payload);
+    const err = validate('GET', '/p2p.list', payload);
     if (err) {
-      return reject(err);
+      reject(err);
+      return;
     }
 
     const opts = {
-      headers: {'Accept': 'application/json'},
+      headers: { Accept: 'application/json' },
       method: 'GET',
     };
-    path = '/p2p.list?' + qs.stringify(payload);
 
-    const api = getBasePath('https://api.bearychat.com/v1') + path;
+    /* eslint-disable */
+    const api = getBasePath('https://api.bearychat.com/v1') + '/p2p.list?' + qs.stringify(payload);
+    /* eslint-enable */
     fetch(api, opts).then(resolve).catch(reject);
   });
 }

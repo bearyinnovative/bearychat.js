@@ -1,5 +1,5 @@
-const r = (name) => require(`./team.${name}`);
+import info from './team.info';
 
 export default {
-  info: r('info'),
+  info,
 };

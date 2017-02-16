@@ -1,7 +1,9 @@
-const r = (name) => require(`./user.${name}`);
+import info from './user.info';
+import list from './user.list';
+import me from './user.me';
 
 export default {
-  info: r('info'),
-  list: r('list'),
-  me: r('me'),
+  info,
+  list,
+  me,
 };

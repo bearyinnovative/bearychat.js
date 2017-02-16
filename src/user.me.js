@@ -7,19 +7,20 @@ import { validate } from './_validate';
 
 export default function userMe(payload) {
   return new Promise((resolve, reject) => {
-    let path = '/user.me';
-    const err = validate('GET', path, payload);
+    const err = validate('GET', '/user.me', payload);
     if (err) {
-      return reject(err);
+      reject(err);
+      return;
     }
 
     const opts = {
-      headers: {'Accept': 'application/json'},
+      headers: { Accept: 'application/json' },
       method: 'GET',
     };
-    path = '/user.me?' + qs.stringify(payload);
 
-    const api = getBasePath('https://api.bearychat.com/v1') + path;
+    /* eslint-disable */
+    const api = getBasePath('https://api.bearychat.com/v1') + '/user.me?' + qs.stringify(payload);
+    /* eslint-enable */
     fetch(api, opts).then(resolve).catch(reject);
   });
 }

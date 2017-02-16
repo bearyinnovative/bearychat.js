@@ -4,10 +4,10 @@ function getValidationSettings(method, path) {
   let rv;
 
   rv = validation[path];
-  if (!rv) return;
+  if (!rv) return null;
 
-  rv = rv[method]
-  if (!rv) return;
+  rv = rv[method];
+  if (!rv) return null;
 
   return rv;
 }
@@ -24,14 +24,16 @@ function validate(method, path, payload) {
     return 'auth token required';
   }
 
+  /* eslint-disable */
   for (let p of Object.keys(s.parameters)) {
     const ps = s.parameters[p];
     if (ps.required && payload[p] === undefined) {
       return `${p} required`;
     }
   }
+  /* eslint-enable */
 
-  return;
+  return null;
 }
 
 export default {

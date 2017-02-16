@@ -1,6 +1,7 @@
-const r = (name) => require(`./rtm.${name}`);
+import start from './rtm.start';
+import message from './rtm.message';
 
 export default {
-  start: r('start'),
-  message: r('message'),
+  start,
+  message,
 };
