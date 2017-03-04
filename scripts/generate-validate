@@ -14,9 +14,13 @@ Object.keys(apiSchema.paths).forEach((path) => {
   validation[path] = validation[path] || {};
 
   Object.keys(settings).forEach((requestMethod) => {
+    // authentication required by default
+    let needAuth = true;
+    if (settings[requestMethod].authentication === false) {
+      needAuth = false;
+    }
     validation[path][requestMethod.toUpperCase()] = {
-      // authentication required by default
-      authentication: settings[requestMethod].authentication || true,
+      authentication: needAuth,
       parameters: settings[requestMethod].parameters || {},
     };
   });

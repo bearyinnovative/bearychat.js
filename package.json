@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run build && jest",
     "lint": "eslint ./src",
-    "download-api": "./scripts/download-api",
+    "download-api-schema": "./scripts/download-api-schema",
     "build:src": "./scripts/generate-validate && ./scripts/generate-api",
     "build:babel": "babel src -d dist --copy-files --source-maps inline",
     "build": "npm run build:babel",
