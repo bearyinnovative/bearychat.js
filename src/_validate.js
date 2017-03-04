@@ -20,7 +20,7 @@ function validate(method, path, payload) {
     return 'unsupported api';
   }
 
-  if (!s.authentication === false && !payload.token) {
+  if (s.authentication !== false && !payload.token) {
     return 'auth token required';
   }
 
