@@ -24,14 +24,15 @@ function validate(method, path, payload) {
     return 'auth token required';
   }
 
-  /* eslint-disable */
-  for (let p of Object.keys(s.parameters)) {
-    const ps = s.parameters[p];
-    if (ps.required && payload[p] === undefined) {
-      return `${p} required`;
+  if (s.parameters.length > 0) {
+    /* eslint-disable */
+    for (let ps of s.parameters) {
+      if (ps.required && payload[ps.name] === undefined) {
+        return `${ps.name} required`;
+      }
     }
+    /* eslint-enable */
   }
-  /* eslint-enable */
 
   return null;
 }
