@@ -1,4 +1,4 @@
-#!/bin/env node
+#!/usr/bin/env node
 
 const async = require('async');
 const yaml = require('js-yaml');

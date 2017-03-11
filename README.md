@@ -182,6 +182,12 @@ Contributing is welcome, the contribution guide can be found in [CONTRIBUTING][]
 
 [CONTRIBUTING]: ./CONTRIBUTING.md
 
+
+### Generating API Client
+
+1. npm run download-api-schema
+2. npm run build:src
+
 ## LICENSE
 
 MIT
