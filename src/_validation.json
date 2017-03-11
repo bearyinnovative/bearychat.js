@@ -391,11 +391,42 @@
       "authentication": true,
       "parameters": [
         {
+          "name": "vchannel_id",
+          "in": "body",
+          "description": "待查询 vchannel_id",
+          "required": true,
+          "example": "=bw52O",
+          "type": "string"
+        },
+        {
           "name": "query",
           "in": "body",
           "description": "消息查询 payload",
           "required": true,
           "$ref": "#/definitions/MessageQuery"
+        }
+      ]
+    }
+  },
+  "/message.info": {
+    "GET": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "vchannel_id",
+          "in": "body",
+          "description": "指定的目标聊天会话 id",
+          "example": "=bw52O",
+          "required": true,
+          "$ref": "#/definitions/VChannelId"
+        },
+        {
+          "name": "message_key",
+          "in": "body",
+          "description": "获取消息的 key",
+          "example": "1487667236785.0077",
+          "required": true,
+          "$ref": "#/definitions/MessageKey"
         }
       ]
     }
