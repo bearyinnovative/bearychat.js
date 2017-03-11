@@ -2,6 +2,10 @@
 - Name: bearychat.js
 ----
 
+# 1.0.0 / 2017-03-11
+
+- 添加了 [OpenAPI](https://github.com/bearyinnovative/OpenAPI) 接口实现
+
 # 0.1.0 / 2016-12-30
 
 ## Added
