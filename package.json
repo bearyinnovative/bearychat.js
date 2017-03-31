@@ -1,6 +1,6 @@
 {
   "name": "bearychat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BearyChat API client for Node and the Browser.",
   "main": "dist/index.js",
   "scripts": {
