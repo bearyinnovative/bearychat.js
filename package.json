@@ -7,6 +7,7 @@
     "test": "npm run build && jest",
     "lint": "eslint ./src",
     "download-api-schema": "./scripts/download-api-schema",
+    "update": "./scripts/download-api-schema && npm run build:src",
     "build:src": "./scripts/generate-validate && ./scripts/generate-api",
     "build:babel": "babel src -d dist --copy-files --source-maps inline",
     "build": "npm run build:babel",

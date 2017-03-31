@@ -4,7 +4,7 @@ const join = require('path').join;
 const fs = require('fs');
 const fetch = require('isomorphic-fetch');
 
-const schemaURL = 'https://raw.githubusercontent.com/bearyinnovative/OpenAPI/master/api-swagger.yml';
+const schemaURL = 'https://raw.githubusercontent.com/bearyinnovative/OpenAPI/master/api/swagger.yml';
 const dest = join(__dirname, '..', 'src', 'api.swagger.yml');
 
 fetch(schemaURL)
