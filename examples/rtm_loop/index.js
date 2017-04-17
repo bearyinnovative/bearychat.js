@@ -44,6 +44,7 @@ function loop(wsHost, me) {
 }
 
 rtm.start({token: rtmToken})
+  .then((resp) => resp.json())
   .then(({ ws_host, user }) => {
     return loop(ws_host, user);
   })
