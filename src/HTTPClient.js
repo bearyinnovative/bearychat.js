@@ -1,4 +1,4 @@
-import _set from 'lodash/set';
+import setInPath from './_setInPath';
 import validation from './_validation.json';
 
 class ResponseError extends Error {
@@ -66,7 +66,7 @@ export default class HTTPClient {
   constructor(token) {
     Object.keys(validation).forEach((path) => {
       const setPath = path.replace(/^\//, '');
-      _set(this, setPath, getWrappedMethod(path, token));
+      setInPath(this, setPath, getWrappedMethod(path, token));
     });
   }
 }
