@@ -38,6 +38,42 @@
       "parameters": {}
     }
   },
+  "/user.update_me": {
+    "PATCH": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "name",
+          "in": "body",
+          "description": "用户名 (@name)",
+          "example": "beary_bot",
+          "required": false
+        },
+        {
+          "name": "full_name",
+          "in": "body",
+          "description": "用户全名",
+          "example": "BearyBot",
+          "required": false
+        }
+      ]
+    }
+  },
+  "/vchannel.info": {
+    "GET": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "vchannel_id",
+          "in": "body",
+          "description": "聊天会话 id",
+          "example": "=bw52O",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
   "/channel.info": {
     "GET": {
       "authentication": true,
