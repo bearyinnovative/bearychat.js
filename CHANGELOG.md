@@ -2,6 +2,10 @@
 - Name: bearychat.js
 ----
 
+# 1.0.2 / 2017-04-21
+
+- 更新到了[OpenAPI@17a7d1928](https://github.com/bearyinnovative/OpenAPI/commit/17a7d1928afb28c71a0af0c30f2f61dc63b201f1)
+
 # 1.0.1 / 2017-03-30
 
 - 更新到了[OpenAPI@7ca334bbc](https://github.com/bearyinnovative/OpenAPI/commit/7ca334bbc63aa904e4de4ad1f9c369b58940f31e)
