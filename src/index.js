@@ -10,6 +10,7 @@ import team from './team';
 import user from './user';
 import sticker from './sticker';
 import emoji from './emoji';
+import vchannel from './vchannel';
 
 export default {
   api,
@@ -24,4 +25,5 @@ export default {
   user,
   sticker,
   emoji,
+  vchannel,
 };
