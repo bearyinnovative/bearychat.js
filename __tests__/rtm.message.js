@@ -1,4 +1,4 @@
-import { rtm } from '../dist';
+import { rtm } from '../src';
 
 describe('isP2P', () => {
 
