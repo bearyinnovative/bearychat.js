@@ -4,7 +4,7 @@
   "description": "BearyChat API client for Node and the Browser.",
   "main": "dist/index.js",
   "scripts": {
-    "test": "npm run build && jest",
+    "test": "jest",
     "lint": "eslint ./src",
     "download-api-schema": "./scripts/download-api-schema",
     "update": "./scripts/download-api-schema && npm run build:src",
@@ -37,11 +37,9 @@
   },
   "dependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",
-    "isomorphic-fetch": "^2.2.1",
-    "urijs": "^1.18.4"
+    "isomorphic-fetch": "^2.2.1"
   },
   "jest": {
-    "testRegex": "(/__tests__/.*|\\-(test|spec))\\.js$",
     "collectCoverage": true,
     "coverageReporters": [
       "text"

@@ -1,4 +1,4 @@
-import { incoming } from '../dist';
+import { incoming } from '../src';
 
 describe('withText', () => {
 

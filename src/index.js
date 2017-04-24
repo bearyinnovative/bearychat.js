@@ -11,6 +11,7 @@ import user from './user';
 import sticker from './sticker';
 import emoji from './emoji';
 import vchannel from './vchannel';
+import HTTPClient from './HTTPClient';
 
 export default {
   api,
@@ -26,4 +27,5 @@ export default {
   sticker,
   emoji,
   vchannel,
+  HTTPClient,
 };
