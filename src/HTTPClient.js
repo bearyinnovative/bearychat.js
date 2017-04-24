@@ -27,9 +27,9 @@ function tryParseResponse(response) {
     }));
 }
 
-function callMethod(method, payload) {
+function callMethod(method, payload, context = this) {
   return new Promise((resolve, reject) => {
-    method.call(this, payload)
+    method.call(context, payload)
       .then(tryParseResponse)
       .then(({ data, response, error }) => {
         if (error) {
@@ -58,7 +58,7 @@ function getWrappedMethod(path, token) {
         token,
       });
     }
-    return callMethod.call(this, method, payload);
+    return callMethod(method, payload, this);
   };
 }
 
