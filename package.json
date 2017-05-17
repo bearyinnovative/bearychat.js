@@ -8,7 +8,7 @@
     "lint": "eslint ./src",
     "download-api-schema": "./scripts/download-api-schema",
     "update": "./scripts/download-api-schema && npm run build:src",
-    "build:src": "./scripts/generate-validate && ./scripts/generate-api",
+    "build:src": "./scripts/generate-validate && ./scripts/generate-api && ./scripts/generate-docs",
     "build:babel": "babel src -d dist --copy-files --source-maps inline",
     "build": "npm run build:babel",
     "build:doc": "markdown-toc -i README.md && markdown-toc -i README_CN.md",
