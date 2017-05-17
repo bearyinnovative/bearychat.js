@@ -1,0 +1,108 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const fs = require('fs');
+const yaml = require('js-yaml');
+const join = require('path').join;
+const toc = require('markdown-toc');
+
+
+const apiFilePath = join(__dirname, '..', 'src', 'api.swagger.yml');
+const apiSchema = yaml.safeLoad(fs.readFileSync(apiFilePath));
+
+const libName = 'bearychat';
+
+let markdown = '# Full API documentation\n';
+
+Object.keys(apiSchema.paths).forEach(function (path) {
+  const schemas = apiSchema.paths[path];
+  Object.keys(schemas).forEach(function (method) {
+    const schema = schemas[method];
+    markdown += generateDoc(path, method, schema);
+  });
+});
+
+markdown = toc(markdown).content + '\n\n' + markdown;
+
+fs.writeFileSync('./API.md', markdown);
+
+
+function generateDoc(path, method, schema) {
+  const apiName = path.replace(/^\//, '.');
+  const api = libName + apiName;
+
+  return `## ${api}()
+\`${method.toUpperCase()}\`
+
+${schema.description}
+
+${generateExample(path, schema)}
+`;
+}
+
+function generateExample(path, schema) {
+  const apiName = path.replace(/^\//, '.');
+  const api = libName + apiName;
+
+  let paramsString = '';
+  if (schema.parameters) {
+    schema.parameters.forEach(function (p, index) {
+      const requiredString = p.required ? '必填' : '选填';
+      const lineTerminator = index === schema.parameters.length - 1 ? '' : ',';
+
+      paramsString += '\n';
+      paramsString += `  // ${requiredString}\n`;
+      paramsString += p.description.trim().split('\n').map(line => `  // ${line}\n`).join('');
+      paramsString += `  ${p.name}: ${generateExampleValue(p)}${lineTerminator}\n`;
+    });
+  }
+
+  const tokenLineTerminator = schema.parameters ? ',\n' : '';
+  const tokenLine = schema.authentication ? `  token: "<your token>"${tokenLineTerminator}` : '';
+  const wrappedParamsString = `{
+
+${tokenLine}${paramsString}
+}`;
+
+  return `\`\`\`javascript
+const ${libName} = require('bearychat');
+
+${api}(${wrappedParamsString}).then(resp => resp.json())
+  .then(data => console.log(data));
+
+${generateExampleResponse(schema.responses)}
+\`\`\`
+`;
+}
+
+function generateExampleValue(parameter) {
+  if (parameter.example) {
+    if (parameter.type === 'array' || parameter.type === 'object') {
+      return parameter.example
+    }
+    return `"${parameter.example}"`;
+  } else if (parameter.type) {
+    return `<${parameter.type}>`
+  } else {
+    return `<${parameter.$ref.replace(/^#\/definitions\//, '')}>`;
+  }
+}
+
+function generateExampleResponse(responses) {
+  let result = '/*\n';
+  Object.keys(responses).forEach(function (statusCode) {
+    if (statusCode === 'default') {
+      return;
+    }
+    const examples = responses[statusCode].examples;
+    if (examples) {
+      Object.keys(examples).forEach(function (exampleName) {
+        result += exampleName + '\n';
+        result += examples[exampleName];
+      });
+    }
+  });
+
+  return result + '\n*/';
+}
