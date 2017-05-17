@@ -32,7 +32,26 @@ $ yarn add bearychat
 
 ## 用例
 
-**整理中**
+直接使用 API:
+
+```javascript
+const bearychat = require('bearychat');
+bearychat.rtm.start({token: '<your token>'})
+  .then(resp => resp.json())
+  .then(data => {console.log(data)});
+```
+
+使用 HTTPClient:
+```javascript
+const HTTPClient = require('bearychat').HTTPClient;
+const client = new HTTPClient('<your token>');
+client.rtm.start()
+  .then(data => {console.log(data)});
+```
+
+注意：使用 HTTPClient **不**需要手动将请求转换为 JSON.
+
+[完整 API 列表](./API.md)
 
 ## 测试
 

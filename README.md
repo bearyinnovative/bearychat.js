@@ -35,7 +35,26 @@ $ yarn add bearychat
 
 ## Usage
 
-NB: WIP
+Plain usage example:
+
+```javascript
+const bearychat = require('bearychat');
+bearychat.rtm.start({token: '<your token>'})
+  .then(resp => resp.json())
+  .then(data => {console.log(data)});
+```
+
+Use HTTPClient:
+```javascript
+const HTTPClient = require('bearychat').HTTPClient;
+const client = new HTTPClient('<your token>');
+client.rtm.start()
+  .then(data => {console.log(data)});
+```
+
+Note that you **DON'T** need to parse response to JSON with HTTPClient, this is handled automatically.
+
+[Full API Documentation](./API.md)
 
 ## Test
 
