@@ -16,13 +16,16 @@ class UnexpectedCodeError extends Error {
 }
 
 function tryParseResponse(response) {
-  return response.json()
+  const shouldParseAsJson = response.headers.has('Content-Type') &&
+    response.headers.get('Content-Type').indexOf('application/json') === 0;
+  const bodyPromise = shouldParseAsJson ? response.json() : response.text();
+  return bodyPromise
     .then(data => ({
       data,
       response,
     }))
     .catch(() => ({
-      // throw ResponseError in case response body is not JSON.
+      // throw ResponseError in case response body parse error.
       error: new ResponseError(response.statusText, response),
     }));
 }
@@ -34,6 +37,8 @@ function callMethod(method, payload, context = this) {
       .then(({ data, response, error }) => {
         if (error) {
           reject(error);
+        } else if (typeof data === 'string') {
+          resolve(data);
         } else if (typeof data.code === 'number' && data.code !== 0) {
           reject(new UnexpectedCodeError(data.error, data.code));
         } else if (response.status < 200 || response.status >= 300) {
