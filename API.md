@@ -15,6 +15,7 @@
   * [bearychat.channel.join()](#bearychatchanneljoin)
   * [bearychat.channel.invite()](#bearychatchannelinvite)
   * [bearychat.channel.kick()](#bearychatchannelkick)
+  * [bearychat.channel.kickout()](#bearychatchannelkickout)
   * [bearychat.session_channel.info()](#bearychatsession_channelinfo)
   * [bearychat.session_channel.list()](#bearychatsession_channellist)
   * [bearychat.session_channel.create()](#bearychatsession_channelcreate)
@@ -23,6 +24,7 @@
   * [bearychat.session_channel.leave()](#bearychatsession_channelleave)
   * [bearychat.session_channel.invite()](#bearychatsession_channelinvite)
   * [bearychat.session_channel.kick()](#bearychatsession_channelkick)
+  * [bearychat.session_channel.kickout()](#bearychatsession_channelkickout)
   * [bearychat.p2p.info()](#bearychatp2pinfo)
   * [bearychat.p2p.list()](#bearychatp2plist)
   * [bearychat.p2p.create()](#bearychatp2pcreate)
@@ -703,6 +705,35 @@ bearychat.channel.kick({
 */
 ```
 
+## bearychat.channel.kickout()
+`POST`
+
+当前用户移除一个讨论组成员。
+
+
+```javascript
+const bearychat = require('bearychat');
+
+bearychat.channel.kickout({
+
+  token: "<your token>",
+
+  // 必填
+  // 讨论组 id
+  channel_id: "=bw52O",
+
+  // 必填
+  // 移除用户 id
+  kick_uid: "=bw52O"
+
+}).then(resp => resp.json())
+  .then(data => console.log(data));
+
+/*
+
+*/
+```
+
 ## bearychat.session_channel.info()
 `GET`
 
@@ -974,6 +1005,35 @@ bearychat.session_channel.invite({
 const bearychat = require('bearychat');
 
 bearychat.session_channel.kick({
+
+  token: "<your token>",
+
+  // 必填
+  // 临时讨论组 id
+  session_channel_id: "=bw52O",
+
+  // 必填
+  // 邀请用户 id
+  kick_uid: "=bw52O"
+
+}).then(resp => resp.json())
+  .then(data => console.log(data));
+
+/*
+
+*/
+```
+
+## bearychat.session_channel.kickout()
+`POST`
+
+移除一个临时讨论组成员。
+
+
+```javascript
+const bearychat = require('bearychat');
+
+bearychat.session_channel.kickout({
 
   token: "<your token>",
 

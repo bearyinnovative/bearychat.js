@@ -232,6 +232,29 @@
       ]
     }
   },
+  "/channel.kickout": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "body",
+          "description": "讨论组 id",
+          "example": "=bw52O",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "kick_uid",
+          "in": "body",
+          "description": "移除用户 id",
+          "example": "=bw52O",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
   "/session_channel.info": {
     "GET": {
       "authentication": true,
@@ -364,6 +387,29 @@
     }
   },
   "/session_channel.kick": {
+    "POST": {
+      "authentication": true,
+      "parameters": [
+        {
+          "name": "session_channel_id",
+          "in": "body",
+          "description": "临时讨论组 id",
+          "example": "=bw52O",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "kick_uid",
+          "in": "body",
+          "description": "邀请用户 id",
+          "example": "=bw52O",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "/session_channel.kickout": {
     "POST": {
       "authentication": true,
       "parameters": [
